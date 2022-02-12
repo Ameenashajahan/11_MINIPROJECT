@@ -26,48 +26,118 @@
     <!-- Google Font -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+<script >
+var check = function() {
+  if (document.getElementById('password').value ==
+    document.getElementById('confirm_password').value) {
+    document.getElementById('message').style.color = 'green';
+    document.getElementById('message').innerHTML = 'matching';
+  } else {
+    document.getElementById('message').style.color = 'red';
+    document.getElementById('message').innerHTML = 'not matching';
+  }
+}
+</script>        
+          
+ 
+          
 </head>
-<body class="tiledBackground" ng-controller="LoginCtrl" style="background-image: url(/static/reuse.webp);  background-repeat: no-repeat;overflow-x: hidden;height: 100%; width: auto">
+<body class="tiledBackground" ng-controller="LoginCtrl" style="background-image: url(/static/reuse.webp);  background-repeat: no-repeat;overflow-x: hidden;height: 100%; width: auto;">
 <div class="container">
       <h1></h1>
       <br>
-      <div class="login-box" style="position:relative;left:550px;top:100px;">
+      <div class="login-box" style="position:relative;left:550px;top:50px;">
         <div class="login-logo">
             <b>
-                <div class="center" style="font-size:32px ;color:  #2e86c1 ;font-family:courier,arial,helvetica">Reuse&Reduce </div></b>
+                <div class="center" style="font-size:32px ;color:  #2e86c1 ;">Register Now.... </div></b>
+                
         </div>
+        <div class="form-group has feedback" style="border: 2px;margin-bottom:10px;"></div>
         <form name="loginForm" action="/register" method="post">
           <div class="form-group has-feedback">
-            <input type="text" placeholder="name" name="name" value="{{
+            <label for="name"style="color:black;font-size: 18px;padding: 10px;cursor: pointer;
+            display: inline-block;
+            text-align: right;
+            width: 75px;">Name</label>
+            <input type="text" placeholder="Name" name="name" value="{{
           request.form.name}}">
           </div>
+          <div class="form-group has feedback" style="border: 2px;margin-bottom:10px;"></div>
           <div class="form-group has-feedback">
-            <input type="text" placeholder="username" name="username" value="{{
+            <label for="username"style="color:black;font-size: 18px;padding: 10px;cursor: pointer;
+            display: inline-block;
+            text-align: right;
+            width: 75px;">Username</label>
+            <input type="text" placeholder="Username" name="username" value="{{
           request.form.username }}">
           </div>
+          <div class="form-group has feedback" style="border: 2px;margin-bottom:10px;"></div>
+
           <div class="form-group has-feedback">
-            <input type="text" placeholder="usermailid" name="usermailid" value="{{
+            <label for="username"style="color:black;font-size: 18px;padding: 10px;cursor: pointer;
+            display: inline-block;
+            text-align: right;
+            width: 75px;">Email</label>
+            <input type="text" placeholder="Email" name="usermailid" value="{{
           request.form.usermailid }}">
           </div>
+          <div class="form-group has feedback" style="border: 2px;margin-bottom:10px;"></div>
+
           <div class="form-group has-feedback">
-            <input type="text" placeholder="delivery address" name="deliveryaddress" value="{{
+            <label for="Address"style="color:black;font-size: 18px;padding: 10px;cursor: pointer;
+            display: inline-block;
+            text-align: right;
+            width: 75px;">Address</label>
+            <input type="text" placeholder="Address" name="deliveryaddress" value="{{
           request.form.deliveryaddress }}">
           </div>
+          <div class="form-group has feedback" style="border: 2px;margin-bottom:10px;"></div>
+
           <div class="form-group has-feedback">
-            <input type="text" placeholder="pin no" name="pinno" value="{{
+            <label for="pinno"style="color:black;font-size: 18px;padding: 10px;cursor: pointer;
+            display: inline-block;
+            text-align: right;
+            width: 75px;">Pinno</label>
+            <input type="text" placeholder="pinno" name="pinno" value="{{
           request.form.pinno }}">
           </div>
+          <div class="form-group has feedback" style="border: 2px;margin-bottom:10px;"></div>
+
           <div class="form-group has-feedback">
-            <input type="text" placeholder="user phoneno" name="userphoneno" value="{{
+            <label for="userphoneno"style="color:black;font-size: 18px;padding: 10px;cursor: pointer;
+            display: inline-block;
+            text-align: right;
+            width: 75px;">Phone</label>
+            <input type="text" placeholder="Phonenumber" name="userphoneno" value="{{
           request.form.userphoneno }}">
           </div>
+          <div class="form-group has feedback" style="border: 2px;margin-bottom:10px;"></div>
+         
+          <p>Set Your Password</p>
           <div class="form-group has-feedback">
-           <input type="password" placeholder="Password" name="password" value="{{
-          request.form.password }}">
+           
+            <label for="password"style="color:black;font-size: 18px;padding: 5px; width: 75px;text-align: right;">Password</label></div><div>
+           <input type="password" placeholder="Password" name="password" id="password" value="{{
+          request.form.password }}"required onkeyup='check();' />
           </div>
-          <input class="btn btn-default" type="submit" value="Register">
+          <div class="form-group has feedback" style="border: 2px;margin-bottom:5px;"></div>
+          <div class="form-group has-feedback">
+            <label for="password"style="color:black;font-size: 18px;padding: 10px; width: 75px;">Confirm Password</label></div>
+            <div>
+           <input type="password" placeholder="Confirm Password" name="password" id="confirm_password" value="{{
+          request.form.password }}" required onkeyup='check();' />
+          <span id='message'></span>
+          </div>
+          
+          <div class="form-group has feedback" style="border: 2px;margin-bottom:10px;"></div>
+          <label for="submit"style="color:black;font-size: 18px;padding: 10px;cursor: pointer;
+            display: inline-block;
+            text-align: right;
+            width: 75px;"></label>
+         <input class="btn btn-default" type="submit" value="Register">
+          <a href="/">Login</a>
        </form>
-       <a href="/">Login</a>
+       
       </div>
       {% if error %}
         <p class="error"><strong>Error:</strong> {{ error }}

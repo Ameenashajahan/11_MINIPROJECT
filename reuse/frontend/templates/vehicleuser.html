@@ -1,0 +1,88 @@
+<html>
+  <head>
+    <title>Reuse&Reduce</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+  
+ <style type="text/css">
+  .styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+ </style>
+  </head>
+  <body body class="tiledBackground" ng-controller="LoginCtrl" style=" 
+ background-image: url(/static/vehicleuser.jpg); background-repeat: no-repeat;overflow-x: hidden;height: 100%; width: 100%;min-height: 100vh;
+width: 100%;
+background-position: center;
+background-size: cover;
+position :relative;
+">
+    <div class="container">
+      <br>
+      <table class="styled-table">
+            <thead>
+              <tr>
+                <th>Vehicle Name</th>
+                <th>Vehicle number</th>
+                <th>Location of Arrival</th>
+                <th>Location pinno</th>
+                <th>Time Of Arrival</th>
+                <th>Date of Arrival</th>
+              </tr>
+            </thead>        
+        
+        <tbody>
+          
+          {% for item in vehicles %}
+          <tr>
+            <td class="name-row">{{item.name}}</td>
+            <td class="name-row">{{item.number}}</td>
+            <td class="name-row">{{item.location}}</td>
+            <td class="name-row">{{item.pinno}}</td>
+            <td class="name-row">{{item.timeofarrival}}</td>
+            <td class="name-row">{{item.dateofarrival}}</td>
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>
+      
+      <form action="/logout" >
+        <button name="foo" value="upvote">logout</button>
+      </form>
+      {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}
+      {% endif %}
+    </div>
+  </body>
+</html>

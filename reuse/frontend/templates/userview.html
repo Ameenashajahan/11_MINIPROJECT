@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Reuse&Reduce | Admin page</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="/static/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/static/bower_components/font-awesome/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="/static/bower_components/Ionicons/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/static/dist/css/AdminDatahut.css">
+    <link rel="stylesheet" href="/static/css/datahut.css">
+    <link rel="shortcut icon" href="/static/dist/img/fav.png" type="image/x-icon">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Google Font -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+          
+</head>
+<body class="tiledBackground" ng-controller="LoginCtrl" style=" 
+ background-image: url(/static/usercart.webp); background-repeat: no-repeat;overflow-x: hidden;height: 100%; width: 100%;min-height: 100vh;
+width: 100%;
+background-position: center;
+background-size: cover;
+position :relative;
+">
+<label class="logo" style="color: blue;
+font-size: 35px;
+line-height: 80px;
+padding: 0 100px;
+font-weight: bold;"><marquee>Recycle Now</marquee></label>
+<div class="container">
+      <h1></h1>
+      <br>
+      <div class="login-box" style="position:relative;left:550px;top: 5px">
+        <div class="login-logo">
+            <b>
+                <div class="center" style="font-size:32px ;color: red;">Sell It And Purchase....</div></b>
+        </div>
+        <div class="form-group has feedback" style="border: 3px;margin-bottom:5px;"></div>
+        <form name="loginForm" action="/usersell" method="post"style="width: 550px;
+        border: 2px solid rgb(240, 12, 12);
+        padding: 30px;
+        background-color:rgba(5,4,2,0.1);
+        border-radius: 15px;text-align: center;
+        justify-content: right;position:relative;right:80px;">
+           <div class="form-group has feedback" style="border: 2px solid rgb(240, 12, 12);margin-bottom:10px;border-color: black;width: 500px;padding: 20px">
+                <button style="background-color: rgba(5,4,2,0.1);border: none;font-size: 20px"> <a href="/usercart">Coins</a></button>
+                 <button style="background-color:rgba(5,4,2,0.1);border: none;font-size: 20px"> <a href="/">Order</a></button>
+                  <button style="background-color: rgba(5,4,2,0.1);border: none;font-size: 20px"> <a href="/useristory">History</a></button>
+                   <button style="background-color:rgba(5,4,2,0.1);border: none;font-size: 20px"> <a href="/vehicleview">Vehicle</a></button>
+           </div>
+          <div class="form-group has-feedback">
+           
+           <label for="weight"style="color:black;font-size: 18px;padding: 10px;cursor: pointer;display: 
+            text-align: right;
+            width: 75px;">Plastic weight:</label>
+             <input type="text" placeholder="weight" name="weight" value="{{
+          request.form.weight }}" required >
+        </div>
+                  <div class="form-group has-feedback">
+           
+           <label for="weight"style="color:black;font-size: 18px;padding: 10px;cursor: pointer;display: 
+            text-align: right;
+            width: 75px;">Plastic Type:</label>
+
+            <select class="form-control select2"  name="type" value="{{
+            request.form.type }}">
+              <option value="Polystyrene">Polystyrene</option>
+              <option value="Polypropylene">Polypropylene</option>
+              <option value="LowDensityPolythene">Low Density Polythene
+</option>
+              <option value="PVC">PVC</option>
+              <option value="HighDensityPolythene">High Density Polythene
+</option>
+              <option value="polyester">Polyester</option>
+            </select>
+        </div>
+         <div class="form-group has feedback" style="border: 2px;margin-bottom:10px;"></div>
+        <label for="Address"style="color:black;font-size: 18px;padding: 10px;cursor: pointer;display: inline-block;
+            text-align: right;
+            width: 65px;">Address:</label>
+            <input type="text" name="Address" placeholder="Address">
+            <div class="form-group has feedback" style="border: 2px;margin-bottom:5px;"></div>
+             <label for="pinno"style="color:black;font-size: 18px;padding: 6px;cursor: pointer;display: inline-block;
+            text-align: right;
+            width: 65px;">Pinno:</label>
+            <input type="text" name="Pinno" placeholder="Pinno">
+            <div class="form-group has feedback" style="border: 2px;margin-bottom:10px;"></div>
+          <label for="submit"style="color:black;font-size: 18px;padding: 10px;cursor: pointer;
+            display: inline-block;
+            text-align: right;
+            width: 75px;"></label>
+         <input class="btn btn-default" type="submit" value="SUBMIT">
+         <button> <a href="/">Purchase</a></button>
+</form>
+    <script>
+        var show = true;
+  
+        function showCheckboxes() {
+            var checkboxes = 
+                document.getElementById("checkBoxes");
+  
+            if (show) {
+                checkboxes.style.display = "block";
+                show = false;
+            } else {
+                checkboxes.style.display = "none";
+                show = true;
+            }
+        }
+    </script>
+</body>
+</html>

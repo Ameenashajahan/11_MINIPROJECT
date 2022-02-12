@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Reuse&Reduce | Log in</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="/static/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/static/bower_components/font-awesome/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="/static/bower_components/Ionicons/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/static/dist/css/AdminDatahut.css">
+    <link rel="stylesheet" href="/static/css/datahut.css">
+    <link rel="shortcut icon" href="/static/dist/img/fav.png" type="image/x-icon">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Google Font -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+<script >
+var check = function() {
+  if (document.getElementById('password').value ==
+    document.getElementById('confirm_password').value) {
+    document.getElementById('message').style.color = 'green';
+    document.getElementById('message').innerHTML = 'matching';
+  } else {
+    document.getElementById('message').style.color = 'red';
+    document.getElementById('message').innerHTML = 'not matching';
+  }
+}
+</script>
+
+</head>
+<body class="tiledBackground" ng-controller="LoginCtrl" style=" 
+ background-repeat: no-repeat;overflow-x: hidden;height: 100%; width: 100%;min-height: 100vh;
+width: 100%;
+background-position: center;
+background-size: cover;
+position :relative;background-image: url(/static/reuse.webp);">
+<label class="logo" style="color:blue;
+font-size: 35px;
+line-height: 80px;
+padding: 0 100px;
+font-weight: bold;"><marquee>Recycle Now</marquee></label>
+<div class="container">
+  
+      <h1></h1>
+      <br>
+      <div class="login-box" style="position:relative;left:550px;top:100px;">
+        <div class="login-logo"style="font-family: sans-serif;
+        box-sizing: border-box;">
+            <b>
+                <div class="right" style="font-size:39px ;color:black;position:relative;bottom:40px;">REUSE AND REDUCE </div></b>
+        </div>
+        <form name="loginForm"  action="/admin" style="width: 450px;
+        border: 2px solid rgb(240, 12, 12);
+        padding: 30px;
+        background-color:rgba(5,4,2,0.1);
+        border-radius: 15px;text-align: center;
+        justify-content: right;position:relative;right:80px;" action="" method="post">
+          <div class="form-group has-feedback"style="text-align: center;">
+            <h3> ADMIN LOGIN </h3></div>
+          <div class="form-group has-feedback"><div>
+            <label for ="username" style="color:black;font-size: 18px;padding: 10px;cursor: pointer;
+            display: inline-block;
+            text-align: right;
+            width: 75px">Email</label>
+            <input type="text" placeholder="Admin Email" name="usermailid" value="{{
+          request.form.usermailid }}" required ></div>
+          </div>
+          <div class="form-group has-feedback"><div>
+            <label for ="password" style="color:black;font-size: 18px;padding: 10px;cursor: pointer;
+            display: inline-block;
+            text-align: right;
+            width: 75px">Password</label>
+           <input type="password" placeholder="Password" name="password" id="password" value="{{
+          request.form.password }}" required onkeyup='check();' /></div>
+          </div>
+          
+
+          <input class="btn btn-default" type="submit" value="Login">
+       </form>
+       
+      </div>
+      {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}
+      {% endif %}
+    </div>
+</body>
+</html>

@@ -1,6 +1,16 @@
 #for user and delivery user databse
 from app.app import db
 
+class UserSell(db.Document):
+	username = db.StringField()
+	address = db.StringField()
+	pinno =  db.StringField()
+	plastictype  = db.StringField()
+	plastictwt  =  db.StringField()
+	coins  = db.IntField()
+
+
+
 class User(db.Document):
 	name  =  db.StringField()
 	pinno  =  db.StringField()
@@ -10,6 +20,7 @@ class User(db.Document):
 	userpassword = db.StringField(required=True)
 	deliveryaddress = db.ListField()
 	userphoneno = db.StringField(required=True)
+	usercoin = db.IntField(default=0)
 
 	def is_authenticated(self):
 		return True
